@@ -1,8 +1,9 @@
 const jwt = require('jsonwebtoken')
 const User = require("../models/users");
-const { use } = require('../routers/user.route');
+const Project = require("../models/project");
 require('dotenv').config()
 
+// authentication function
 exports.authentication = async (req, res, next) => {
     console.info(`${new Date()} : Authentication Start`)
     // get access token from header
@@ -49,5 +50,34 @@ exports.authentication = async (req, res, next) => {
                     .json({
                         message: "JWT Error"
                     })
+    }
+}
+// authorization function
+exports.authorization = async (req, res, next) => {
+    console.info('Authorizatin Start');
+    // get id project from params
+    const projectId = req.params.id
+    try {
+        // get id from user log in
+        const { id, role } = req.loggedUser;
+        // search project on database
+        const project = await Project.findById({ _id : projectId})
+        // check project
+        if(project){
+            // check for project owner on user log in and database must be same and role from log in user 
+            if(id == project.owner && role === 'admin'){
+                console.info('Authorization Finished')
+                // throw to next function
+                next()
+            }
+        }
+        return res
+                    .status(404)
+                    .json({message: "Project doesn't exist"})
+    }
+    catch (error) {
+        console.info('Authorization Failed')
+        console.error(error)
+        return res.status(500).json({message : 'Internal Server Error'})
     }
 }
