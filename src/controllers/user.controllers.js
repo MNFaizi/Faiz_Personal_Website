@@ -61,7 +61,7 @@ exports.loginUser = async (req, res) => {
             userId : userCheck.id
         });
     } catch (error) {
-        console.info(`${new Date()} : ${username}Login Error`)
+        console.info(`${new Date()} : ${username} Login Error`)
         console.log(error)
         return res.status(401).json({ message: "Invalid Credential" });
     }
