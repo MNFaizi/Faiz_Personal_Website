@@ -4,6 +4,7 @@ const ProjectSchema = new mongosee.Schema({
     owner : {
         type : mongosee.Schema.Types.ObjectId,
         ref : 'User',
+        require: true
     },
     project_name : {
         type: String,

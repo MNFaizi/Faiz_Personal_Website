@@ -7,11 +7,11 @@ require('dotenv').config()
 exports.authentication = async (req, res, next) => {
     console.info(`${new Date()} : Authentication Start`)
     // get access token from header
-    const { access_token } = req.headers;
-    // response when access token doesnt exist
-    const [type, token] = access_token.split(' ');
-    if (token) {
+    const  access_token  = req.headers.authorization;
+    if (access_token) {
         try {
+            // verify the token
+            const [type, token] = access_token.split(' ')
             // Verify token from headers
             const decodeToken = jwt.verify(token, process.env.SECRET_KEY)
             // get username and id from decodeToken
@@ -54,29 +54,30 @@ exports.authentication = async (req, res, next) => {
 }
 // authorization function
 exports.authorization = async (req, res, next) => {
-    console.info('Authorizatin Start');
+    console.info(`${new Date()} : Authorization Start`);
     // get id project from params
-    const projectId = req.params.id
+    const paramId = req.params.id
     try {
         // get id from user log in
         const { id, role } = req.loggedUser;
         // search project on database
-        const project = await Project.findById({ _id : projectId})
+        const model = await Project.findById({ _id : paramId})
         // check project
-        if(project){
+        if(model){
             // check for project owner on user log in and database must be same and role from log in user 
-            if(id == project.owner && role === 'admin'){
-                console.info('Authorization Finished')
+            if(id === model.owner?.toString() && role === 'admin'){
+                console.info(`${new Date()} : Authorization Finished`)
                 // throw to next function
                 next()
             }
+            else {
+                console.warn(`${new Date()} : Authorization Failed`)
+                return res.status(401).json({message : 'Unauthorized'})
+            }
         }
-        return res
-                    .status(404)
-                    .json({message: "Project doesn't exist"})
     }
     catch (error) {
-        console.info('Authorization Failed')
+        console.warn(`${new Date()} : Authorization Failed`)
         console.error(error)
         return res.status(500).json({message : 'Internal Server Error'})
     }
