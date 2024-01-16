@@ -3,10 +3,10 @@ const { createProject, getProject, getProjectById, updateProject, deleteProject 
 const { authentication, authorization } = require('../middlewares/auth')
 const upload = require('../../upload');
 
-router.post('/', authentication, upload.single('file') , createProject);
-router.get('/', getProject);
-router.get('/:id', getProjectById);
-router.put('/:id', authentication, authorization,upload.single('file'), updateProject);
-router.delete('/:id', authentication, authorization, deleteProject);
+router.post('/', authentication, upload.single('file') , createProject);  // create project router
+router.get('/', getProject);  // get project route
+router.get('/:id', getProjectById); // get project by id
+router.put('/:id', authentication, authorization,upload.single('file'), updateProject); // update project 
+router.delete('/:id', authentication, authorization, deleteProject); // delete project 
 
 module.exports = router
