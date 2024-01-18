@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 const configs = [
-    { name: "Home", url: "#about" },
+    { name: "Home", url: "/" },
     { name: "About", url: "#about" },
     { name: "Project", url: "#project" },
     { name: "Blog", url: "#blog" }
@@ -10,7 +10,7 @@ const configs = [
 export default function Navigation() {
     return (
         <>
-            <nav className="flex justify-center sticky">
+            <nav className=" sticky top-1 flex justify-center">
                 <ul className="flex justify-center font-bold p-5 my-3 leading-8 rounded-full">
                     {configs.map((config, index) => {
                         return (

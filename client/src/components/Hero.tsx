@@ -1,14 +1,13 @@
 "use client"
 
 import Image from "next/image"
-import { animate, motion, useAnimation, useMotionValue, useTransform } from "framer-motion"
+import { animate, motion, useMotionValue, useTransform } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faTwitter, faDiscord, faMedium, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import Link from "next/link"
 import { useEffect } from "react"
-import CursorBlinking from "./lib/Cursor"
 library.add(faEnvelope, faGithub, faTwitter, faDiscord, faMedium, faLinkedin)
 
 
@@ -37,7 +36,7 @@ export default function Hero() {
         return controls.stop
     })
     return (
-        <section id="hero" className="text-center min-h-[90vh] flex flex-col items-center">
+        <div className="text-center min-h-[90vh] flex flex-col items-center">
             <div className="flex justify-center flex-col">
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -54,9 +53,9 @@ export default function Hero() {
                 <h1 className="font-semibold text-3xl m-5">{config.description}</h1>
             </div>
             <motion.div
-                initial={{x: -1200, opacity: 1}}
+                initial={{ x: -1200, opacity: 1 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ease: 'easeIn', duration: 3}}
+                transition={{ ease: 'easeIn', duration: 3 }}
             >
                 <div className="my-10 flex">
                     {social.map((soc, index) => {
@@ -73,6 +72,6 @@ export default function Hero() {
             <button className="my-15 shadow-xl">
                 <a href="#project" className="bg-slate-100 rounded-xl py-2 px-5 font-medium text-xl">Project</a>
             </button>
-        </section>
+        </div>
     )
 }
