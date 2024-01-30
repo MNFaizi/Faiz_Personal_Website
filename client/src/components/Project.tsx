@@ -1,6 +1,4 @@
-"use client"
 import Image from "next/image"
-import { motion } from "framer-motion"
 
 const config = {
     heading: 'Here you will find some of the personal and clients projects that I created with each project containing its own case study',
