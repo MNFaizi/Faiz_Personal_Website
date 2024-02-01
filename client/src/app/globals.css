@@ -6,7 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --background-gradient : radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(0,85,164,1) 34%, rgba(58,115,218,1) 46%, rgba(5,94,177,1) 53%, rgba(9,17,126,1) 67%, rgba(0,212,255,1) 100%);
+  --background-gradient : linear-gradient(192deg, rgba(0,85,164,1) 35%, rgba(6,88,160,1) 36%, rgba(255,209,0,1) 80%, rgba(111,31,217,1) 94%, rgba(85,0,255,1) 100%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,11 +19,19 @@
 }
 
 body {
-  color: rgb(var(--background-start-rgb));
-  background: linear-gradient(135deg, rgba(0,85,164,1) 69%, rgba(0,212,255,1) 100%);
+  background-image: url('/bg-.jpg');
   background-repeat: no-repeat;
 }
 
 * {
   box-sizing: border-box;
+}
+
+@layer components {
+  .bg-navbar {
+    background: linear-gradient(65deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+  }
+  .line {
+    background: linear-gradient(192deg, rgba(6,118,160,1) 10%, rgba(0,85,164,1) 26%, rgba(40,221,213,1) 56%, rgba(0,202,255,1) 88%);;
+  }
 }

@@ -20,7 +20,7 @@ export default function About() {
         <div className="min-h-[90vh] m-4">
             <div className="text-center mx-auto w-1/2">
                 <h1 className="text-6xl font-bold">About Me</h1>
-                <div className="rounded-full h-2 w-40 bg-white mx-auto my-2"></div>
+                <div className="rounded-full h-2 w-40 line mx-auto my-2"></div>
                 <h3 className="text-2xl m-10">{config.heading}</h3>
             </div>
             <div className="flex my-24 mx-32">

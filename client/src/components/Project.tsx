@@ -17,7 +17,7 @@ export default function Project() {
         <div className={'min-h-[90vh] m-4'}>
             <div className="text-center w-1/2 mx-auto">
                 <h1 className="text-6xl font-bold">Project</h1>
-                <div className="rounded-full h-2 w-32 bg-white mx-auto my-2"></div>
+                <div className="rounded-full h-2 w-32 line mx-auto my-2"></div>
                 <p className="text-2xl m-10">{config.heading}</p>
             </div>
             <div className="my-4">
@@ -29,12 +29,12 @@ export default function Project() {
                                 </div>
                                 <div className="basis-1/2">
                                     <h1 className="text-center text-2xl font-bold">{project.name}</h1>
-                                    <div className="rounded-full h-1 w-32 bg-white mx-auto my-2"></div>
+                                    <div className="rounded-full h-1 w-32 line mx-auto my-2"></div>
                                     <p className="text-md my-10">{project.description}</p>
                                     <div className="flex  justify-center">
                                         {project.tools.map((tool, index) => {
                                             return (
-                                                <div key={index} className="m-1 rounded-md bg-slate-200 py-2 px-4 shadow-2xl hover:shadow-inner">
+                                                <div key={index} className="m-1 rounded-md bg-slate-50 py-2 px-4 shadow-2xl hover:shadow-inner">
                                                     <span className="font-medium">{tool}</span>
                                                 </div>
                                             )

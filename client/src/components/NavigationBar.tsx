@@ -31,11 +31,11 @@ export default function Navigation() {
     return (
         <>
             <nav className={`${bgChange ? 'sticky top-1' : ''} flex justify-center`}>
-                <ul className={`flex justify-center font-bold p-5 my-3 leading-8 rounded-full bg-white ${bgChange ? 'shadow-xl' : 'shadow-md'}`}>
+                <ul className={`flex justify-center font-bold p-5 my-3 leading-8 rounded-full bg-navbar ${bgChange ? 'shadow-xl' : 'shadow-md'}`}>
                     {configs.map((config, index) => {
                         return (
                             <li key={index} className="mx-1">
-                                <Link href={config.url} className="transition ease-linear delay-100 px-6 py-4 focus:bg-slate-50 rounded-full focus:shadow-xl">{config.name}</Link>
+                                <Link href={config.url} className=" text-white transition ease-linear delay-100 px-6 py-4 focus:bg-slate-50 rounded-full focus:shadow-2xl focus:text-inherit">{config.name}</Link>
                             </li>
                         )
                     })}
