@@ -1,4 +1,7 @@
+'use client'
+
 import Link from "next/link"
+import { useEffect, useState } from "react"
 
 const configs = [
     { name: "Home", url: "/" },
@@ -8,10 +11,27 @@ const configs = [
 ]
 
 export default function Navigation() {
+    const [bgChange, setBgChange] = useState(false)
+    useEffect(() => {
+        const handleScroll = () => {
+            console.log(window.scrollY)
+            console.log(bgChange)
+            if(window.scrollY >= 5){
+                setBgChange(true)
+            }
+            else {
+                setBgChange(false)
+            }
+        }
+        window.addEventListener('scroll' , handleScroll)
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    })
     return (
         <>
-            <nav className=" sticky top-1 flex justify-center">
-                <ul className="flex justify-center font-bold p-5 my-3 leading-8 rounded-full">
+            <nav className={`${bgChange ? 'sticky top-1' : ''} flex justify-center`}>
+                <ul className={`flex justify-center font-bold p-5 my-3 leading-8 rounded-full bg-white ${bgChange ? 'shadow-xl' : 'shadow-md'}`}>
                     {configs.map((config, index) => {
                         return (
                             <li key={index} className="mx-1">
