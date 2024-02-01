@@ -1,0 +1,8 @@
+# node_modules not import to container
+node_modules
+# next files not import to
+.next
+
+# git
+.git
+.gitignore

@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  client:
+    container_name: mnf-website
+    build: 
+      context: ./client/
+      dockerfile: Dockerfile
+    deploy: 
+      resources:
+        limits: 
+          cpus: '0.5' 
+          memory: 256M
+        reservations: 
+          cpus: '0.25'
+          memory: 128M
+      restart_policy:
+        condition: on-failure
+        delay: 2s
+    ports:
+      - 3010:3000
