@@ -19,21 +19,21 @@ export default function About() {
     return (
         <div className="min-h-[90vh] m-4">
             <div className="text-center mx-auto lg:w-1/2">
-                <h1 className="text-6xl font-bold">About Me</h1>
+                <h1 className="text-4xl lg:text-6xl font-bold">About Me</h1>
                 <div className="rounded-full h-2 w-40 line mx-auto my-2"></div>
-                <h3 className="text-2xl m-10">{config.heading}</h3>
+                <h3 className="text-xl lg:text-2xl my-5 lg:my-10">{config.heading}</h3>
             </div>
-            <div className="flex lg:flex-row sm:flex-col my-24 mx-32">
+            <div className="flex lg:flex-row flex-col lg:my-24 lg:mx-32 mx-5">
                 <div className="basis-1/2">
-                    <h1 className="text-3xl my-5 font-bold">Get to Know!</h1>
-                    <h3 className="text-xl lg:w-3/4 text-justify">{config.description}</h3>
+                    <h1 className="text-xl lg:text-3xl my-5 font-bold">Get to Know!</h1>
+                    <h3 className="lg:text-xl lg:w-3/4 text-justify">{config.description}</h3>
                 </div>
                 <div className="basis-1/2">
-                    <h1 className="text-3xl lg:m-4 my-4 font-bold">My Skill</h1>
+                    <h1 className="text-xl lg:text-3xl lg:m-4 my-4 font-bold">My Skill</h1>
                     <div className="flex flex-wrap">
                         {config.skills.map((skill, index) => {
                             return (
-                                <div key={index} className="lg:m-4 sm:m-1">
+                                <div key={index} className="lg:m-4 m-1">
                                     <Image src={skill.icon} width={75} height={75} alt={skill.name} />
                                 </div>
                             )

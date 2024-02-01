@@ -14,24 +14,24 @@ const config = {
 }
 export default function Project() {
     return (
-        <div className={'min-h-[90vh] m-4'}>
+        <div className={'min-h-[90vh] m-5'}>
             <div className="text-center lg:w-1/2 mx-auto">
-                <h1 className="text-6xl font-bold">Project</h1>
+                <h1 className="text-4xl lg:text-6xl font-bold">Project</h1>
                 <div className="rounded-full h-2 w-32 line mx-auto my-2"></div>
-                <p className="text-2xl m-10">{config.heading}</p>
+                <p className="text-xl lg:text-2xl lg:m-10">{config.heading}</p>
             </div>
             <div className="my-4">
                 {config.projects.map((project, index) => {
                     return (
-                            <div key={index} className="m-10 lg:flex lg:justify-around">
+                            <div key={index} className="lg:m-10 lg:flex lg:justify-around">
                                 <div className="flex justify-center">
                                     <Image src={project.img} width={600} height={400} alt={project.name} className="rounded-md shadow-xl" />
                                 </div>
-                                <div className="basis-1/2 sm:my-4">
-                                    <h1 className="text-center text-2xl font-bold">{project.name}</h1>
+                                <div className="basis-1/2 my-4">
+                                    <h1 className="text-center text-xl lg:text-2xl font-bold">{project.name}</h1>
                                     <div className="rounded-full h-1 w-32 line mx-auto my-2"></div>
-                                    <p className="text-md m-10 sm:text-center">{project.description}</p>
-                                    <div className="flex justify-center">
+                                    <p className="text-md m-2 lg:m-10 text-justify">{project.description}</p>
+                                    <div className="flex justify-center flex-wrap">
                                         {project.tools.map((tool, index) => {
                                             return (
                                                 <div key={index} className="m-1 rounded-md bg-slate-50 py-2 px-4 shadow-2xl hover:shadow-inner">

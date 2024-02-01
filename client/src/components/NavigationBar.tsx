@@ -33,7 +33,7 @@ export default function Navigation() {
                     {configs.map((config, index) => {
                         return (
                             <li key={index} className="mx-1">
-                                <Link href={config.url} className=" text-white transition ease-linear delay-100 px-6 py-4 focus:bg-slate-50 rounded-full focus:shadow-2xl focus:text-inherit">{config.name}</Link>
+                                <Link href={config.url} className=" text-white transition ease-linear delay-100 px-3 py-4 focus:bg-slate-50 rounded-full focus:shadow-2xl focus:text-inherit lg:px-6">{config.name}</Link>
                             </li>
                         )
                     })}

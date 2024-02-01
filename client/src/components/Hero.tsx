@@ -36,7 +36,7 @@ export default function Hero() {
         return controls.stop
     })
     return (
-        <div className="text-center min-h-[90vh] flex flex-col items-center">
+        <div className="text-center min-h-[100vh] flex flex-col items-center">
             <div className="flex justify-center flex-col">
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -46,11 +46,11 @@ export default function Hero() {
                     <Image src={config.profile} height={200} width={200} alt="foto profile faiz" className="rounded-full mx-auto my-10" />
                 </motion.div>
                 <motion.h1
-                    className="font-bold text-6xl uppercase m-5"
+                    className="font-bold text-4xl lg:text-6xl uppercase m-5"
                 >
                     {displayText}
                 </motion.h1>
-                <h1 className="font-semibold text-3xl m-5">{config.description}</h1>
+                <h1 className="font-semibold text-2xl lg:text-3xl m-5">{config.description}</h1>
             </div>
             <motion.div
                 initial={{ x: -1200, opacity: 1 }}
@@ -60,7 +60,7 @@ export default function Hero() {
                 <div className="my-10 flex">
                     {social.map((soc, index) => {
                         return (
-                            <div key={index} className="transition ease-in-out delay-150 mx-5 hover:scale-125 hover:animate-bounce">
+                            <div key={index} className="transition ease-in-out delay-150 mx-2 lg:mx-5 hover:scale-125 hover:animate-bounce">
                                 <Link href={soc.url} target="_blank" >
                                     <FontAwesomeIcon icon={soc.icon} size="3x" color="black" />
                                 </Link>
