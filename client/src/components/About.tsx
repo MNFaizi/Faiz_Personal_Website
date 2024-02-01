@@ -29,7 +29,7 @@ export default function About() {
                     <h3 className="text-xl w-3/4 text-justify">{config.description}</h3>
                 </div>
                 <div className="basis-1/2">
-                    <h1 className="text-3xl my-5 font-bold">My Skill</h1>
+                    <h1 className="text-3xl m-4 font-bold">My Skill</h1>
                     <div className="flex flex-wrap">
                         {config.skills.map((skill, index) => {
                             return (
