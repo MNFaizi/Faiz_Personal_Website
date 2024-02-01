@@ -14,8 +14,6 @@ export default function Navigation() {
     const [bgChange, setBgChange] = useState(false)
     useEffect(() => {
         const handleScroll = () => {
-            console.log(window.scrollY)
-            console.log(bgChange)
             if(window.scrollY >= 5){
                 setBgChange(true)
             }
