@@ -16,5 +16,3 @@ services:
       restart_policy:
         condition: on-failure
         delay: 2s
-    ports:
-      - 3010:3000
