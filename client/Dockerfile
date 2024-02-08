@@ -1,10 +1,10 @@
-FROM node:current-alpine
+FROM node:lts-alpine3.19 as base
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm ci
+RUN npm ci --production
 
 COPY . .
 
