@@ -1,11 +1,10 @@
-# create base builder layer
 FROM node:lts-alpine3.19 as base
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm ci
+RUN npm ci --production
 
 # create  builder layer
 FROM node:lts-alpine3.19 as builder
